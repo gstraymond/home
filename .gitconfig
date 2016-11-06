@@ -1,6 +1,6 @@
 [user]
 	name = Guillaume Saint-Raymond
-	email = Guillaume.SAINTRAYMOND@cpexterne.org
+	email = guillaume.saintraymond@snips.ai
 
 [color]
 	ui = true
@@ -17,14 +17,10 @@
 	lll = log --color --pretty=format:'%Cred%h%Creset %s %Cblue<%an>%Creset'
 	last = "! git --no-pager lll -10"
 	
-[merge]
-        conflictStyle = diff3
-        
 [push]
 	default = current
 
 [pull]
 	rebase = preserve
-
-[credential]
-	helper = cache --timeout=3600000
+[core]
+	editor = vim
