@@ -42,6 +42,5 @@ alias refreshMon='xrandr --dpi 192 --output HDMI2 --auto --above eDP1'
 alias open='xdg-open'
 
 alias vi='vim'
-alias setFontSize="printf '\33]50;%s%d\007' 'xft:Consolas:pixelsize='"
 
 alias syncHome='cp ~/.zshrc ~/git/tools/home/. && cp ~/.oh-my-zsh/custom/custom.zsh ~/git/tools/home/.oh-my-zsh/custom/. && cp ~/.gitconfig ~/git/tools/home/. && cp -r ~/.config/i3 ~/git/tools/home/.config/. && cp ~/.Xresources ~/git/tools/home/.'

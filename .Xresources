@@ -20,10 +20,11 @@ URxvt*scrollTtyKeypress: true
 
 URxvt.letterSpace: -1
 
-!URxvt.perl-lib: /home/gstraymond/.urxvt/ext/urxvt-perls
-! keyboard-select
-!URxvt.keysym.Alt-S: perl:keyboard-select:activate
-!URxvt.keysym.Alt-R: perl:keyboard-select:search
+URxvt.perl-ext-common:default,keyboard-select,resize-font
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.resize-font.smaller: M-Down
+URxvt.resize-font.bigger: M-Up
 
 ! Base16 Atelier Dune
 ! Scheme: Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/dune)
