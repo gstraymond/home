@@ -1,6 +1,6 @@
 [user]
 	name = Guillaume Saint-Raymond
-	email = guillaume.saintraymond@snips.ai
+	email = tcherno@gmail.com
 
 [color]
 	ui = true
@@ -16,8 +16,9 @@
 	lsearch = "!sh -c 'git log --grep=$1' -"
 	lll = log --color --pretty=format:'%Cred%h%Creset %s %Cblue<%an>%Creset'
 	last = "! git --no-pager lll -10"
-	commend = commit --amend --no-edit
 	please = push --force-with-lease
+	commend = commit --amend --no-edit
+	it = !git init && git commit -m “root” --allow-empty
 	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
 	
 [push]
@@ -25,6 +26,5 @@
 
 [pull]
 	rebase = preserve
-
 [core]
 	editor = vim

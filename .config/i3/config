@@ -57,14 +57,15 @@ bindsym $mod+Shift+A kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
 bindsym $mod+Shift+d exec --no-startup-id quickswitch.py 
 
 # change focus
-#bindsym $mod+j focus left
-#bindsym $mod+k focus down
-#bindsym $mod+l focus up
-#bindsym $mod+m focus right
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -76,7 +77,7 @@ bindsym $mod+Right focus right
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
 bindsym $mod+Shift+l move up
-bindsym $mod+Shift+M move right
+bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -95,7 +96,7 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+z layout tabbed
+bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
@@ -105,43 +106,34 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+q focus parent
+bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
 
-bindsym $mod+l exec "~/lock.sh"
-
 # switch to workspace
-bindsym $mod+ampersand workspace 1.TERM
-bindsym $mod+eacute workspace 2.IDE
-bindsym $mod+quotedbl workspace 3.WWW
-bindsym $mod+apostrophe workspace 4
-bindsym $mod+parenleft workspace 5
-bindsym $mod+section workspace 6
-bindsym $mod+egrave workspace 7
-bindsym $mod+exclam workspace 8
-bindsym $mod+ccedilla workspace 9
-bindsym $mod+agrave workspace 10
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1.TERM
-bindsym $mod+Shift+eacute move container to workspace 2.IDE
-bindsym $mod+Shift+3 move container to workspace 3.WWW
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+section move container to workspace 6
-bindsym $mod+Shift+egrave move container to workspace 7
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+ccedilla move container to workspace 9
-bindsym $mod+Shift+agrave move container to workspace 10
-
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 3%- 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 3%+
-bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
-
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -161,7 +153,7 @@ mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
-        bindsym m resize grow width 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -175,6 +167,7 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
 
 # Border settings
 #hide_edge_borders horizontal
@@ -190,7 +183,7 @@ bar {
   status_command i3blocks
   #output            DP-0
   position          top
-  font pango:Consolas 10
+  font pango:Consolas 12
   colors {
         separator $base03
         background $base01
@@ -200,14 +193,9 @@ bar {
         inactive_workspace $base01 $base01 $base03
         urgent_workspace $base08 $base08 $base07
   }
-}
+} 
 
 client.focused $base0D $base0D $base00 $base01
 client.focused_inactive $base02 $base02 $base03 $base01
 client.unfocused $base01 $base01 $base03 $base01
 client.urgent $base02 $base08 $base07 $base08
-
-#exec --no-startup-id "xrandr --dpi 192 --output HDMI2 --auto --above eDP1"
-exec --no-startup-id "dunst -config ~/.config/dunst/conf"
-#exec --no-startup-id "xautolock -time 15 -locker '~/lock.sh' &"
-exec --no-startup-id "feh --bg-fill /usr/share/pixmaps/wallpaper/4k-44081.jpg"
