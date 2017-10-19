@@ -1,4 +1,4 @@
-alias gbpurge='git branch --merged | grep -v "\*" | grep -v "master" | grep -v "develop" | grep -v "staging" | xargs -n 1 git branch -d'
+alias gbpurge='git branch --merged | egrep -v "(^\*|master|prod|develop|dev)" | xargs git branch -d'
 
 export lgg2='LGD802958690bc'
 export sgs2='00199fb36039ce'
@@ -14,6 +14,7 @@ alias cleanApk='adb shell pm clear ai.snips.debug'
 alias lycos='grep -iIrn --color=auto'
 alias hlycos='lycos --include="*.html" --exclude-dir={bin,.target}'
 alias jlycos='lycos --include="*.java"'
+alias jslycos='lycos --include="*.js"'
 alias plycos='lycos --include="*.properties" --exclude-dir="target"'
 alias slycos='lycos --include="*.scala"'
 alias xlycos='lycos --include="*.xml" --exclude-dir={target,.idea,build}'
@@ -25,6 +26,7 @@ alias ymllycos='lycos --include="*.yml"'
 
 alias hfind='find . -type f -name "*.html" | grep -v bin | grep -v target | grep -i '
 alias jfind='find . -type f -name "*.java" | grep -i '
+alias jsfind='find . -type f -name "*.js" | grep -i '
 alias pfind='find . -type f -name "*.properties" | grep -v target | grep -i '
 alias sfind='find . -type f -name "*.scala" | grep -i '
 alias xfind='find . -type f -name "*.xml" | grep -v target | grep -v .idea | grep -i '
@@ -44,3 +46,6 @@ alias open='xdg-open'
 alias vi='vim'
 
 alias syncHome='cp ~/.zshrc ~/git/tools/home/. && cp ~/.oh-my-zsh/custom/custom.zsh ~/git/tools/home/.oh-my-zsh/custom/. && cp ~/.gitconfig ~/git/tools/home/. && cp -r ~/.config/i3 ~/git/tools/home/.config/. && cp ~/.Xresources ~/git/tools/home/.'
+
+alias activator='TERM=xterm-color bin/activator'
+alias swapUsage='for file in /proc/*/status ; do awk '\''/VmSwap|Name/{printf $2 " " $3}END{ print ""}'\'' $file; done | sort -k 2 -n -r | head -n 5'

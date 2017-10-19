@@ -50,7 +50,8 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+A kill
+# keycode 24 q
+bindcode $mod+Shift+24 kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
@@ -58,7 +59,7 @@ bindsym $mod+Shift+A kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+d exec --no-startup-id j4-dmenu-desktop
-bindsym $mod+Shift+d exec --no-startup-id quickswitch.py 
+bindsym $mod+Shift+d exec --no-startup-id quickswitch.py
 
 # change focus
 #bindsym $mod+j focus left
@@ -90,6 +91,9 @@ bindsym $mod+h split h
 # split in vertical orientation
 bindsym $mod+v split v
 
+bindsym $mod+m exec "xrasengan --try-reload-active-layout" 
+#xrandr --auto
+
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
@@ -105,7 +109,8 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+q focus parent
+# keycode 24 q
+bindcode $mod+24 focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -113,30 +118,31 @@ bindsym $mod+q focus parent
 bindsym $mod+l exec "~/lock.sh"
 
 # switch to workspace
-bindsym $mod+ampersand workspace 1.TERM
-bindsym $mod+eacute workspace 2.IDE
-bindsym $mod+quotedbl workspace 3.WWW
-bindsym $mod+apostrophe workspace 4
-bindsym $mod+parenleft workspace 5
-bindsym $mod+section workspace 6
-bindsym $mod+egrave workspace 7
-bindsym $mod+exclam workspace 8
-bindsym $mod+ccedilla workspace 9
-bindsym $mod+agrave workspace 10
+# keycode 10 1
+bindcode $mod+10 workspace 1.TERM
+bindcode $mod+11 workspace 2.IDE
+bindcode $mod+12 workspace 3.WWW
+bindcode $mod+13 workspace 4.COMM
+bindcode $mod+14 workspace 5
+bindcode $mod+15 workspace 6
+bindcode $mod+16 workspace 7
+bindcode $mod+17 workspace 8
+bindcode $mod+18 workspace 9
+bindcode $mod+19 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1.TERM
-bindsym $mod+Shift+eacute move container to workspace 2.IDE
-bindsym $mod+Shift+3 move container to workspace 3.WWW
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+section move container to workspace 6
-bindsym $mod+Shift+egrave move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+ccedilla move container to workspace 9
-bindsym $mod+Shift+agrave move container to workspace 10
+bindcode $mod+Shift+10 move container to workspace 1.TERM
+bindcode $mod+Shift+11 move container to workspace 2.IDE
+bindcode $mod+Shift+12 move container to workspace 3.WWW
+bindcode $mod+Shift+13 move container to workspace 4.COMM
+bindcode $mod+Shift+14 move container to workspace 5
+bindcode $mod+Shift+15 move container to workspace 6
+bindcode $mod+Shift+16 move container to workspace 7
+bindcode $mod+Shift+17 move container to workspace 8
+bindcode $mod+Shift+18 move container to workspace 9
+bindcode $mod+Shift+19 move container to workspace 10
 
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 3%- 
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 3%-
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 3%+
 bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 
@@ -211,3 +217,5 @@ client.urgent $base02 $base08 $base07 $base08
 exec --no-startup-id "dunst -config ~/.config/dunst/conf"
 #exec --no-startup-id "xautolock -time 15 -locker '~/lock.sh' &"
 exec --no-startup-id "feh --bg-fill /usr/share/pixmaps/wallpaper/4k-44081.jpg"
+
+for_window [class="1pass" instance="1pass"] floating enable
