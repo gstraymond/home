@@ -1,5 +1,5 @@
 Xft.dpi: 144
-#Xft.dpi: 192
+! Xft.dpi: 192
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
@@ -7,7 +7,7 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-URxvt.font: xft:Consolas:size=8
+URxvt.font: xft:Consolas:size=10
 URxvt*scrollBar:        false
 URxvt.saveLines:        20000
 ! do not scroll with output
@@ -79,3 +79,4 @@ URxvt*color18:                        #292824
 URxvt*color19:                        #6e6b5e
 URxvt*color20:                        #999580
 URxvt*color21:                        #e8e4cf
+
