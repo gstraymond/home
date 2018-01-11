@@ -47,5 +47,8 @@ alias vi='vim'
 
 alias syncHome='cp ~/.zshrc ~/git/tools/home/. && cp ~/.oh-my-zsh/custom/custom.zsh ~/git/tools/home/.oh-my-zsh/custom/. && cp ~/.gitconfig ~/git/tools/home/. && cp -r ~/.config/i3 ~/git/tools/home/.config/. && cp ~/.Xresources ~/git/tools/home/.'
 
-alias activator='TERM=xterm-color bin/activator'
+alias activator='bin/activator'
+#alias activator='TERM=xterm-color bin/activator'
 alias swapUsage='for file in /proc/*/status ; do awk '\''/VmSwap|Name/{printf $2 " " $3}END{ print ""}'\'' $file; done | sort -k 2 -n -r | head -n 5'
+alias resetUsbEth='sudo ip link set dev enp0s20f0u2u1 down && sudo rm -rf /var/lib/dhcpcd/dhcpcd-enp0s20f0u2* && sudo ip link set dev enp0s20f0u2u1 up && sudo systemctl start netctl-ifplugd@enp0s20f0u2u1'
+alias jsonLess='jq -C . | less -R'

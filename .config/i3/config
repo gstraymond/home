@@ -115,7 +115,7 @@ bindcode $mod+24 focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-bindsym $mod+l exec "~/lock.sh"
+bindsym $mod+l exec "/usr/local/bin/lock.sh"
 
 # switch to workspace
 # keycode 10 1
@@ -213,11 +213,9 @@ client.focused_inactive $base02 $base02 $base03 $base01
 client.unfocused $base01 $base01 $base03 $base01
 client.urgent $base02 $base08 $base07 $base08
 
-#exec --no-startup-id "xrandr --dpi 192 --output HDMI2 --auto --above eDP1"
 exec --no-startup-id "xrandr --dpi 144"
-#exec --no-startup-id "dunst -config ~/.config/dunst/conf"
-#exec --no-startup-id "xautolock -time 15 -locker '~/lock.sh' &"
-exec --no-startup-id "feh --bg-scale /usr/share/pixmaps/red-house.jpg"
+exec --no-startup-id "feh --bg-fill /usr/share/pixmaps/liberty-statue.jpg"
+exec --no-startup-id "compton -CGb"
 
 for_window [class="1pass" instance="1pass"] floating enable
 

@@ -7,7 +7,7 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-URxvt.font: xft:Consolas:size=10
+URxvt.font: xft:Consolas:size=10,xft:PowerlineSymbols:size=10
 URxvt*scrollBar:        false
 URxvt.saveLines:        20000
 ! do not scroll with output
